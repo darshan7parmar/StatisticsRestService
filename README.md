@@ -20,8 +20,7 @@ mvn test
 
 ##### POST /transactions
 
-/tranasction endpoint add the transaction to the tranasction repository
-transactionRepository is madeup of in memory PriorityBlockingQueue Java Implementation , which can handle concurrent transaction request in thread safe manner.
+/tranasction endpoint add the transaction to the tranasctionRepository. transactionRepository is madeup of in memory PriorityBlockingQueue Java Implementation , which can handle concurrent transaction request in thread safe manner.
 Worst case insertion time for transaction add is O(log n) , and in normal case if the timestamp values are always higher than exisiting timestamps then it will insert in O(1) time.
 
 ##### GET /statistics
