@@ -1,6 +1,6 @@
 package api.rest.service;
 
-import api.rest.database.StatisticsDB;
+import api.rest.database.StatisticsSummary;
 import api.rest.database.TransactionRepository;
 import api.rest.entity.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class StatisticsService {
     @Autowired
-    private StatisticsDB statisticsDB;
+    private StatisticsSummary statisticsSummary;
     @Autowired
     private TransactionRepository transactionRepository;
 
     public DoubleSummaryStatistics getStatistics() {
 
-        return statisticsDB.getStatistics();
+        return statisticsSummary.getStatistics();
     }
 
     public void refreshStatistics() {
@@ -33,10 +33,10 @@ public class StatisticsService {
         if (last60SecondsTransaction.size() > 0) {
             DoubleSummaryStatistics stats = last60SecondsTransaction.stream()
                     .collect(Collectors.summarizingDouble(Double::doubleValue));
-            statisticsDB.updateStatistics(stats);
+            statisticsSummary.updateStatistics(stats);
         } else {
-            if (statisticsDB.getStatistics().getCount() > 0) {
-                statisticsDB.clearStatistics();
+            if (statisticsSummary.getStatistics().getCount() > 0) {
+                statisticsSummary.clearStatistics();
             }
         }
     }

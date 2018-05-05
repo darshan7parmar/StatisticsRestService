@@ -1,6 +1,7 @@
 package api.rest.database;
 
 import api.rest.entity.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
@@ -9,6 +10,8 @@ import java.util.concurrent.PriorityBlockingQueue;
 /**
  * TransactionRepository Holds all the transaction object within 60 seconds duration.
  */
+
+@Component
 public class TransactionRepositoryImpl implements TransactionRepository {
 
     private final Queue<Transaction> transactions;
