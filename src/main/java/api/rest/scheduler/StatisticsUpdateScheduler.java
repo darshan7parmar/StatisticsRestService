@@ -18,7 +18,6 @@ public class StatisticsUpdateScheduler {
 
     @Scheduled(fixedRate = Config.SCHEDULING_PERIOD)
     public void updateStatistics() {
-        System.out.println("Schedulder Started");
         statisticsService.refreshStatistics();
     }
 }
