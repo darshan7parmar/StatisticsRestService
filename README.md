@@ -1,38 +1,35 @@
-"# StatisticsRestService" 
-Specs
-Usage:
+## StatisticsRestService
+##### REST Service to handle concurrent transaction data and calculate the transaction statistics 
 
 
-Start Spring Application
+##### Usage:
+
+
+##### Start Spring Application
 
 mvn spring-boot:run
 
-To Generate the Build JAR 
+##### To Generate the Build JAR 
 
 mvn install -DskipTests=false
 
-To run the Tests( It may take upto 2 minutes time as it has time based tests also)
+##### To run the Tests( It may take upto 2 minutes time as it has time based tests also)
 
 mvn test 
 
 
-POST /transactions
+##### POST /transactions
 
 /tranasction endpoint add the transaction to the tranasction repository
 transactionRepository is madeup of in memory PriorityBlockingQueue Java Implementation , which can handle concurrent transaction request in thread safe manner.
 Worst case insertion time for transaction add is O(log n) , and in normal case if the timestamp values are always higher than exisiting timestamps then it will insert in O(1) time.
 
-GET /statistics
+##### GET /statistics
 
 /statistics endpoint will return the statistics like sum,max,min,count and average. 
 statistics endpoint runs on O(1) time. 
 
-Statistics Refresh  
+##### Statistics Refresh  
 
 statistics objects are updated every second via scheduler. So new transactions are reflected into statistics only after 1 second(this value can be configured in Config.java).
 statistics are calculated based on DoubleSummaryStatistics Java class which calculates the statistics on the Single Pass.
-
-
-
-
-
