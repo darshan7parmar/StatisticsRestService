@@ -1,5 +1,6 @@
 "# StatisticsRestService" 
 Specs
+
 POST /transactions
 
 /tranasction endpoint add the transaction to the tranasction repository
@@ -12,6 +13,7 @@ GET /statistics
 statistics endpoint runs on O(1) time. 
 
 Statistics Refresh  
+
 statistics objects are updated every second via scheduler. So new transactions are reflected into statistics only after 1 second(this value can be configured in Config.java).
 statistics are calculated based on DoubleSummaryStatistics Java class which calculates the statistics on the Single Pass.
 
