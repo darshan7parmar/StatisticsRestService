@@ -14,8 +14,6 @@ public class TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;
-    @Autowired
-    private StatisticsService statisticsService;
 
     public void addTransaction(Transaction transaction) throws ExpiredorFutureTransactionException {
         if (!transaction.matchesTimeLimit()) {

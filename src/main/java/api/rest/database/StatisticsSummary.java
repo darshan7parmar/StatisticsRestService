@@ -8,5 +8,5 @@ public interface StatisticsSummary {
 
     void updateStatistics(DoubleSummaryStatistics statistics);
 
-    public void clearStatistics();
+    void clearStatistics();
 }
