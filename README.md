@@ -1,5 +1,17 @@
 "# StatisticsRestService" 
 Specs
+Usage:
+
+
+Start Spring Application
+mvn spring-boot:run
+
+To Generate the Build JAR 
+mvn install -DskipTests=false
+
+To run the Tests( It may take upto 2 minutes time as it has time based tests also)
+mvn test 
+
 
 POST /transactions
 
